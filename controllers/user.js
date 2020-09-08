@@ -1,6 +1,6 @@
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
-const _ = require("lodash");
+// const _ = require("lodash");
 const jwt = require("jsonwebtoken");
 
 //function for creating a new user
