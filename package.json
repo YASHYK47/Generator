@@ -1,26 +1,33 @@
 {
-  "name": "backend-task",
+  "name": "generator",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YASHYK47/Backend-Task.git"
+    "url": "git+https://github.com/YASHYK47/Generator.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/YASHYK47/Backend-Task/issues"
+    "url": "https://github.com/YASHYK47/Generator/issues"
   },
-  "homepage": "https://github.com/YASHYK47/Backend-Task#readme",
+  "homepage": "https://github.com/YASHYK47/Generator#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "express-fileupload": "^1.1.6"
+    "express-fileupload": "^1.1.7-alpha.3",
+    "fs": "0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.8",
+    "mongoose": "^5.9.18",
+    "randomstring": "^1.1.5",
+    "xlsx": "^0.16.3"
   }
 }
