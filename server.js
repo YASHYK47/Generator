@@ -25,8 +25,10 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Server up and running in 3000");
+const PORT = process.env.PORT || 8000;
+
+app.listen(PORT, () => {
+  console.log(`Server up and running in ${PORT}`);
 });
 
 module.exports = { app };
