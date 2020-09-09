@@ -8,7 +8,7 @@ const generate = async (limit = 2000) => {
       const rndm = await randomstring.generate({
         length: 8,
         readable: true,
-        charset: "numeric",
+        charset: "alphanumeric",
       });
       const old_key = await ProductB.findOne({ val: rndm });
       if (!old_key) {
