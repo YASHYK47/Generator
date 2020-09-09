@@ -7,7 +7,7 @@ var randomstring = require("randomstring");
 const { generate, verify } = require("../controllers/productA.js");
 const authenticate = require("../middleware/authenticateUser");
 
-router.get("/generate", authenticate, async (req, res, next) => {
+router.post("/generate", authenticate, async (req, res, next) => {
   try {
     const values = await generate(req.body.limit);
     let ts = Date.now();
