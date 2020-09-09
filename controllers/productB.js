@@ -10,16 +10,16 @@ const generate = async (limit = 2000) => {
         readable: true,
         charset: "alphanumeric",
       });
-      const old_key = await ProductB.findOne({ val: rndm });
-      if (!old_key) {
-        const new_key = await ProductB({
-          val: rndm,
-        });
-        await new_key.save();
-        if (new_key) {
-          ans.push({ productB_keys: rndm });
-        }
+      // const old_key = await ProductB.findOne({ val: rndm });
+      // if (!old_key) {
+      const new_key = await ProductB({
+        val: rndm,
+      });
+      await new_key.save();
+      if (new_key) {
+        ans.push({ productB_keys: rndm });
       }
+      // }
     }
     return ans;
   } catch (error) {
