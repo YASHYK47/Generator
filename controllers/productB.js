@@ -1,7 +1,7 @@
 const ProductB = require("../models/productB");
 var randomstring = require("randomstring");
 
-const generate = async (limit = 1000) => {
+const generate = async (limit = 2000) => {
   try {
     const ans = [];
     for (i = 0; i < limit; i++) {

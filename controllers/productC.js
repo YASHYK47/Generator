@@ -1,12 +1,12 @@
 const ProductC = require("../models/productC");
 var randomstring = require("randomstring");
 
-const generate = async (limit = 1000) => {
+const generate = async (limit = 2000) => {
   try {
     const ans = [];
     for (i = 0; i < limit; i++) {
       const rndm = await randomstring.generate({
-        length: 8,
+        length: 6,
         readable: true,
         charset: "alphanumeric",
       });
