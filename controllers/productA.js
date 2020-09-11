@@ -8,7 +8,6 @@ const generate = async (limit = 2000) => {
     for (i = 0; i < limit; i++) {
       const rndm = await randomstring.generate({
         length: 8,
-        readable: true,
         charset: "numeric",
       });
       if (old_keys.findIndex((x) => x.val === rndm) === -1) {
