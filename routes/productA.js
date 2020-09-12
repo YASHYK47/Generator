@@ -4,11 +4,16 @@ const fs = require("fs");
 const path = require("path");
 const xlsx = require("xlsx");
 var randomstring = require("randomstring");
+const { verifyUser } = require("../controllers/user.js");
 const { generate, verify } = require("../controllers/productA.js");
-const authenticate = require("../middleware/authenticateUser");
+// const authenticate = require("../middleware/authenticateUser");
 
-router.post("/generate", authenticate, async (req, res, next) => {
+router.post("/generate", async (req, res, next) => {
   try {
+    if (!req.body.email || !req.body.password) {
+      throw new Error("Email or password missing");
+    }
+    await verifyUser(req.body);
     const values = await generate(req.body.limit);
     let ts = Date.now();
     const rndm = randomstring.generate(8);

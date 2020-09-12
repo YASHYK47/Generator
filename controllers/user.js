@@ -37,12 +37,12 @@ const verifyUser = async ({ email, password }) => {
     if (!comparePassword) {
       throw new Error("Wrong Password");
     }
-    const token = await jwt.sign(
-      { _id: user._id.toString() },
-      process.env.JWT_SECRET
-    );
-    const result = { token, user };
-    return result;
+    // const token = await jwt.sign(
+    //   { _id: user._id.toString() },
+    //   process.env.JWT_SECRET
+    // );
+    // const result = { token, user };
+    return true;
   } catch (error) {
     throw new Error(error.message);
   }
