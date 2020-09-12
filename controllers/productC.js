@@ -1,7 +1,7 @@
 const ProductC = require("../models/productC");
 var randomstring = require("randomstring");
 
-const generate = async (limit = 2000) => {
+const generate = async (limit = 500) => {
   try {
     const ans = [];
     const old_keys = await ProductC.find({}, { val: 1, _id: 0 });
