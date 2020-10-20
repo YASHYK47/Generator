@@ -13,7 +13,7 @@ router.post("/generate", async (req, res, next) => {
     if (!req.body.email || !req.body.password) {
       throw new Error("Email or password missing");
     }
-    await verifyUser( req.body );
+    await verifyUser(req.body);
     const values = await generate(req.body.limit);
     let ts = Date.now();
     const rndm = randomstring.generate(8);

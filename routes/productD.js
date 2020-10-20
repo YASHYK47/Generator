@@ -5,7 +5,7 @@ const path = require("path");
 const xlsx = require("xlsx");
 var randomstring = require("randomstring");
 const { verifyUser } = require("../controllers/user.js");
-const { generate, verify } = require("../controllers/productB.js");
+const { generate, verify } = require("../controllers/productD.js");
 // const authenticate = require("../middleware/authenticateUser");
 
 router.post("/generate", async (req, res, next) => {
