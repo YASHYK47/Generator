@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const path = require("path");
+const ProductB = require("../models/productC");
 const { createUser, verifyUser } = require("../controllers/user.js");
 
 //User registeration API
@@ -52,6 +53,41 @@ router.get("/removeFiles", (req, res, next) => {
     });
     res.json({
       success: true,
+      message: "Files Deleted successfully!",
+    });
+  } catch (error) {
+    res.json({ success: false, message: error.message, data: {} });
+  }
+});
+
+const arr = [
+  "0",
+  "00",
+  "000",
+  "0000",
+  "00000",
+  "000000",
+  "0000000",
+  "00000000",
+];
+
+router.get("/updateZeroFault", async (req, res, next) => {
+  try {
+    const vals = await ProductB.find({}, { val: 1, _id: 0 });
+    vals.forEach((val) => {
+      if (val.length < 8) {
+        let x = 8 - val.length;
+        return arr[x - 1] + val;
+      } else {
+        return val;
+      }
+    });
+
+    await ProductB.deleteMany({});
+    await ProductB.insertMany(vals);
+    res.json({
+      success: true,
+      vals,
       message: "Files Deleted successfully!",
     });
   } catch (error) {
