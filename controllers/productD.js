@@ -1,4 +1,5 @@
 const ProductD = require("../models/productD");
+const ProductB = require("../models/productB");
 var randomstring = require("randomstring");
 
 const generate = async (limit = 500) => {
@@ -28,7 +29,11 @@ const verify = async (val) => {
     const old_key = await ProductD.findOne({ val });
     if (old_key) {
       return true;
-    } else {
+    }else {
+      const old_key_1 = await ProductB.findOne({ val });
+      if(old_key_1){
+        return true;
+      }
       throw new Error("Invalid Key Provided");
     }
   } catch (error) {
