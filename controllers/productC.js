@@ -37,8 +37,8 @@ const arr = [
 const verify = async (val) => {
   try {
     let newVal = val;
-    const x = 8 - newVal.length;
-    if(x < 8){
+    if(val.length < 8){
+      const x = 8 - val.length;
       newVal = arr[ x - 1 ] + val;
     }
     const old_key = await ProductC.findOne({ val: newVal });
