@@ -23,9 +23,25 @@ const generate = async (limit = 500) => {
   }
 };
 
+const arr = [
+  "0",
+  "00",
+  "000",
+  "0000",
+  "00000",
+  "000000",
+  "0000000",
+  "00000000",
+];
+
 const verify = async (val) => {
   try {
-    const old_key = await ProductC.findOne({ val });
+    let newVal = val;
+    const x = 8 - newVal.length;
+    if(x < 8){
+      newVal = arr[ x - 1 ] + val;
+    }
+    const old_key = await ProductC.findOne({ val: newVal });
     if (old_key) {
       return true;
     } else {
